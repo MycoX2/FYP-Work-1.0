@@ -27,12 +27,12 @@ class MainActivity : ComponentActivity() {
 
         //spinner code is here
         val spinnerDest = findViewById<Spinner>(R.id.spinner_dest);
+        //initialize and define adapter
         val adapter : ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(this, R.array.destinations, android.R.layout.simple_spinner_item)
             .also { adapter ->
-                // Specify the layout to use when the list of choices appears.
+                // layout for each item in drop down list
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 // Apply the adapter to the spinner.
-                spinnerDest.adapter = adapter
                 spinnerDest.setAdapter(adapter);
             }
 

@@ -8,32 +8,27 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-// on below line we are creating an
-// adapter class for our grid view.
 internal class GridAdapter(
-    // on below line we are creating two
-    // variables for course list and context
-    private val courseList: List<gridViewItem>,
+
+    //initialize interestList and context
+    private val interestList: List<gridViewItem>,
     private val context: Context
 ) :
     BaseAdapter() {
-    // in base adapter class we are creating variables
-    // for layout inflater, course image view and course text view.
-    private var layoutInflater: LayoutInflater? = null
-    private lateinit var courseTV: TextView
-    private lateinit var courseIV: ImageView
 
-    // below method is use to return the count of course list
+    private var layoutInflater: LayoutInflater? = null
+    private lateinit var interestsText: TextView
+    private lateinit var interestsImage: ImageView
+
+    //initialize default methods
     override fun getCount(): Int {
-        return courseList.size
+        return interestList.size
     }
 
-    // below function is use to return the item of grid view.
     override fun getItem(position: Int): Any? {
         return null
     }
 
-    // below function is use to return item id of grid view.
     override fun getItemId(position: Int): Long {
         return 0
     }
@@ -41,28 +36,23 @@ internal class GridAdapter(
     // in below function we are getting individual item of grid view.
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         var convertView = convertView
-        // on blow line we are checking if layout inflater
-        // is null, if it is null we are initializing it.
+        // layoutInflater instantiates a new View
         if (layoutInflater == null) {
             layoutInflater =
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
-        // on the below line we are checking if convert view is null.
-        // If it is null we are initializing it.
+        //convertView reuses a given view.
+        //hence, this checks if convertView is null or not.
         if (convertView == null) {
-            // on below line we are passing the layout file
-            // which we have to inflate for each item of grid view.
             convertView = layoutInflater!!.inflate(R.layout.grid_item, null)
         }
-        // on below line we are initializing our course image view
-        // and course text view with their ids.
-        courseIV = convertView!!.findViewById(R.id.img_interest)
-        courseTV = convertView!!.findViewById(R.id.text_interest)
-        // on below line we are setting image for our course image view.
-        courseIV.setImageResource(courseList.get(position).img)
-        // on below line we are setting text in our course text view.
-        courseTV.setText(courseList.get(position).title)
-        // at last we are returning our convert view.
+
+        interestsImage = convertView!!.findViewById(R.id.img_interest)
+        interestsText = convertView!!.findViewById(R.id.text_interest)
+        //set image from drawable as interestsImage
+        interestsImage.setImageResource(interestList.get(position).img)
+        // set text
+        interestsText.setText(interestList.get(position).title)
         return convertView
     }
 }
