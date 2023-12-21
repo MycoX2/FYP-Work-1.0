@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9F6">
+
+    <View
+        android:id="@+id/blueBar_interests"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:background="#0096FF" />
+
+    <TextView
+        android:id="@+id/textInterests"
+        android:layout_width="wrap_content"
+        android:layout_height="81dp"
+        android:layout_above="@+id/blueBar_interests"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="498dp"
+        android:text="@string/interests_statement"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/buttonInterests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/blueBar_interests"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/button_next" />
+
+    <GridView
+        android:id="@+id/interests_grid"
+        android:layout_width="410dp"
+        android:layout_height="416dp"
+        android:layout_above="@+id/blueBar_interests"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="58dp"
+        android:horizontalSpacing="6dp"
+        android:numColumns="2"
+        android:verticalSpacing="6dp"
+        />
+
+</RelativeLayout>
